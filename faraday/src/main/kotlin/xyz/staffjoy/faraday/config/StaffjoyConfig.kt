@@ -13,9 +13,9 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
-import xyz.staffjoy.common.AuthorizeInterceptor
-import xyz.staffjoy.common.EnvConfig
-import xyz.staffjoy.common.FeignRequestHeaderInterceptor
+import xyz.staffjoy.faraday.auth.AuthorizeInterceptor
+import xyz.staffjoy.faraday.env.EnvConfig
+import xyz.staffjoy.faraday.auth.FeignRequestHeaderInterceptor
 import javax.annotation.PostConstruct
 import javax.annotation.PreDestroy
 

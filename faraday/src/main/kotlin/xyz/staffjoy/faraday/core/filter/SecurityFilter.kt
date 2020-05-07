@@ -5,7 +5,7 @@ import com.github.structlog4j.SLoggerFactory
 import org.apache.commons.lang3.StringUtils.isEmpty
 import org.springframework.http.HttpHeaders
 import org.springframework.web.filter.OncePerRequestFilter
-import xyz.staffjoy.common.env.EnvConfig
+import xyz.staffjoy.faraday.env.EnvConfig
 import java.io.IOException
 import java.net.URI
 import java.net.URISyntaxException
@@ -30,7 +30,7 @@ class SecurityFilter(private val envConfig: EnvConfig) : OncePerRequestFilter() 
         if ("OPTIONS" == request.method) {
             return
         }
-        if (!envConfig.isDebug()) {
+        if (!envConfig.debug) {
             // Check if secure
             var isSecure = request.isSecure
             if (!isSecure) {

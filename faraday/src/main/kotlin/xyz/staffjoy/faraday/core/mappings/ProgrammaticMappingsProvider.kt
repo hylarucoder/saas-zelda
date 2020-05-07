@@ -1,8 +1,8 @@
 package xyz.staffjoy.faraday.core.mappings
 
 import org.springframework.boot.autoconfigure.web.ServerProperties
-import xyz.staffjoy.common.env.EnvConfig
-import xyz.staffjoy.common.services.ServiceDirectory.mapping
+import xyz.staffjoy.faraday.env.EnvConfig
+import xyz.staffjoy.faraday.services.ServiceDirectory.mapping
 import xyz.staffjoy.faraday.config.FaradayProperties
 import xyz.staffjoy.faraday.config.MappingProperties
 import xyz.staffjoy.faraday.core.http.HttpClientProvider
@@ -28,7 +28,7 @@ class ProgrammaticMappingsProvider(
             val service = serviceMap[key]
             val mapping = MappingProperties()
             mapping.name = subDomain + "_route"
-            mapping.host = subDomain + "." + envConfig.getExternalApex()
+            mapping.host = subDomain + "." + envConfig.externalApex
             // No security on backend right now :-(
             val dest = "http://" + service.getBackendDomain()
             mapping.destinations = Arrays.asList(dest)

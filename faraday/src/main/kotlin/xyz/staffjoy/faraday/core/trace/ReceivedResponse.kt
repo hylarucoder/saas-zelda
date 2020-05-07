@@ -5,11 +5,9 @@ import xyz.staffjoy.faraday.core.utils.BodyConverter
 
 class ReceivedResponse : HttpEntity() {
     var status: HttpStatus? = null
-        protected set
-    var body: ByteArray
-        protected set
+    lateinit var body: ByteArray
 
-    val bodyAsString: String
+    val bodyAsString: String?
         get() = BodyConverter.convertBodyToString(body)
 
 }

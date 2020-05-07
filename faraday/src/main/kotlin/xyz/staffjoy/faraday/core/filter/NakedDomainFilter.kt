@@ -3,7 +3,7 @@ package xyz.staffjoy.faraday.core.filter
 import com.github.structlog4j.ILogger
 import com.github.structlog4j.SLoggerFactory
 import org.springframework.web.filter.OncePerRequestFilter
-import xyz.staffjoy.common.env.EnvConfig
+import xyz.staffjoy.faraday.env.EnvConfig
 import java.io.IOException
 import java.net.URI
 import java.net.URISyntaxException
@@ -17,17 +17,17 @@ class NakedDomainFilter(private val envConfig: EnvConfig) : OncePerRequestFilter
     override fun doFilterInternal(request: HttpServletRequest, response: HttpServletResponse, filterChain: FilterChain) {
         // if you're hitting naked domain - go to www
         // e.g. staffjoy.xyz/foo?true=1 should redirect to www.staffjoy.xyz/foo?true=1
-        if (envConfig.getExternalApex().equals(request.serverName)) {
+        if (envConfig.externalApex.equals(request.serverName)) {
             // It's hitting naked domain - redirect to www
             log.info("hitting naked domain - redirect to www")
             var scheme = "http"
-            if (!envConfig.isDebug()) {
+            if (!envConfig.debug) {
                 scheme = "https"
             }
             try {
                 val redirectUrl = URI(scheme,
                         null,
-                        DEFAULT_SERVICE + "." + envConfig.getExternalApex(),
+                        DEFAULT_SERVICE + "." + envConfig.externalApex,
                         request.serverPort,
                         "/login/", null, null)
                 response.sendRedirect(redirectUrl.toString())

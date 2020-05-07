@@ -8,7 +8,7 @@ import java.util.*
 
 class ProxyingTraceInterceptor(protected val faradayProperties: FaradayProperties, protected val traceInterceptor: TraceInterceptor) {
     fun generateTraceId(): String? {
-        return if (faradayProperties.tracing.isEnabled()) UUID.randomUUID().toString() else null
+        return if (faradayProperties.tracing.enabled) UUID.randomUUID().toString() else null
     }
 
     fun onRequestReceived(traceId: String?, method: HttpMethod, host: String, uri: String, headers: HttpHeaders) {
@@ -55,14 +55,16 @@ class ProxyingTraceInterceptor(protected val faradayProperties: FaradayPropertie
         runIfTracingIsEnabled(Runnable {
             val response = ReceivedResponse()
             response.status = status
-            response.body = body
+            if (body != null) {
+                response.body = body
+            }
             response.headers = headers
             traceInterceptor.onForwardComplete(traceId, response)
         })
     }
 
     protected fun runIfTracingIsEnabled(operation: Runnable) {
-        if (faradayProperties.tracing.isEnabled()) {
+        if (faradayProperties.tracing.enabled) {
             operation.run()
         }
     }
