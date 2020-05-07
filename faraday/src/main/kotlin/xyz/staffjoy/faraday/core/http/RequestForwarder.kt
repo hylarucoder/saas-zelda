@@ -1,4 +1,3 @@
-/*
 package xyz.staffjoy.faraday.core.http
 
 import com.github.structlog4j.ILogger
@@ -52,7 +51,6 @@ class RequestForwarder(
                 .body(response.body)
     }
 
-    */
 /**
      * Remove any protocol-level headers from the remote server's response that
      * do not apply to the new response we are sending.
@@ -76,7 +74,7 @@ class RequestForwarder(
      *
      * @param request
      * @param destination
-     *//*
+     */
 
     protected fun prepareForwardedRequestHeaders(request: RequestData, destination: ForwardDestination?) {
         val headers: HttpHeaders = request.headers
@@ -134,4 +132,4 @@ class RequestForwarder(
         this.traceInterceptor = traceInterceptor
         this.postForwardResponseInterceptor = postForwardResponseInterceptor
     }
-}*/
+}
