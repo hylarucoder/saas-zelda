@@ -13,15 +13,15 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
-import xyz.staffjoy.common.auth.AuthorizeInterceptor
-import xyz.staffjoy.common.auth.FeignRequestHeaderInterceptor
-import xyz.staffjoy.common.env.EnvConfig
+import xyz.staffjoy.common.AuthorizeInterceptor
+import xyz.staffjoy.common.EnvConfig
+import xyz.staffjoy.common.FeignRequestHeaderInterceptor
 import javax.annotation.PostConstruct
 import javax.annotation.PreDestroy
 
 @Configuration
 @EnableConfigurationProperties(StaffjoyProps::class)
-class StaffjoyConfig : WebMvcConfigurer {
+open class StaffjoyConfig : WebMvcConfigurer {
     @Value("\${spring.profiles.active:NA}")
     private val activeProfile: String? = null
 
@@ -32,20 +32,20 @@ class StaffjoyConfig : WebMvcConfigurer {
     var staffjoyProps: StaffjoyProps? = null
 
     @Bean
-    fun modelMapper(): ModelMapper {
+    open fun modelMapper(): ModelMapper {
         return ModelMapper()
     }
 
     @Bean
-    fun envConfig(): EnvConfig {
-        return EnvConfig.getEnvConfg(activeProfile)
+    open fun envConfig(): EnvConfig {
+        return EnvConfig.getEnvConfig(activeProfile)
     }
 
     @Bean
-    fun sentryClient(): SentryClient {
-        val sentryClient: SentryClient = Sentry.init(staffjoyProps.getSentryDsn())
+    open fun sentryClient(): SentryClient {
+        val sentryClient: SentryClient = Sentry.init(staffjoyProps.sentryDsn)
         sentryClient.environment = activeProfile
-        sentryClient.release = staffjoyProps.getDeployEnv()
+        sentryClient.release = staffjoyProps.deployEnv
         sentryClient.addTag("service", appName)
         return sentryClient
     }
@@ -55,7 +55,7 @@ class StaffjoyConfig : WebMvcConfigurer {
     }
 
     @Bean
-    fun feignRequestInterceptor(): RequestInterceptor {
+    open fun feignRequestInterceptor(): RequestInterceptor {
         return FeignRequestHeaderInterceptor()
     }
 

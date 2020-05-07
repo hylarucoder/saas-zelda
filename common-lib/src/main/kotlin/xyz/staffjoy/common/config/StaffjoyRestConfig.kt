@@ -10,4 +10,4 @@ import xyz.staffjoy.common.error.GlobalExceptionTranslator
  */
 @Configuration
 @Import(value = [StaffjoyConfig::class, SentryClientAspect::class, GlobalExceptionTranslator::class])
-class StaffjoyRestConfig 
+open class StaffjoyRestConfig

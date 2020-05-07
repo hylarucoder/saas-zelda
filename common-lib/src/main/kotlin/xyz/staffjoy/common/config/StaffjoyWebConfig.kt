@@ -9,4 +9,4 @@ import xyz.staffjoy.common.aop.SentryClientAspect
  */
 @Configuration
 @Import(value = [StaffjoyConfig::class, SentryClientAspect::class])
-class StaffjoyWebConfig 
+open class StaffjoyWebConfig

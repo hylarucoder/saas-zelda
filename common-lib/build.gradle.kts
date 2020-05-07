@@ -12,6 +12,7 @@ dependencies {
     implementation("structlog4j:structlog4j-json:1.0.0")
     implementation("org.modelmapper:modelmapper:2.3.3")
     implementation("com.auth0:java-jwt:3.6.0")
+
     implementation(kotlin("stdlib-jdk8"))
     implementation(kotlin("reflect"))
 

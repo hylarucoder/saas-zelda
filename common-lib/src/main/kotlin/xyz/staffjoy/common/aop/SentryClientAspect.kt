@@ -1,15 +1,15 @@
 package xyz.staffjoy.common.aop
 
-import lombok.extern.slf4j.Slf4j
 import org.aspectj.lang.ProceedingJoinPoint
 import org.aspectj.lang.annotation.Around
 import org.aspectj.lang.annotation.Aspect
 import org.springframework.beans.factory.annotation.Autowired
-import xyz.staffjoy.common.env.EnvConfig
+import xyz.staffjoy.common.EnvConfig
+import xyz.staffjoy.common.utils.logger
 
 @Aspect
-@Slf4j
 class SentryClientAspect {
+    private val log = logger()
     @Autowired
     var envConfig: EnvConfig? = null
 
@@ -17,7 +17,7 @@ class SentryClientAspect {
     @Throws(Throwable::class)
     fun around(joinPoint: ProceedingJoinPoint) {
         // no sentry logging in debug mode
-        if (envConfig.isDebug()) {
+        if (envConfig!!.debug) {
             log.debug("no sentry logging in debug mode")
             return
         }
