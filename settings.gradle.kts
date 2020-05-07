@@ -1,6 +1,19 @@
 rootProject.name = "zelda-parent"
 
-include(
-    "backend",
-    "test-utils"
-)
+include("common-lib")
+include("account-svc")
+include("account-api")
+include("company-api")
+include("company-svc")
+include("mail-api")
+include("mail-svc")
+include("sms-svc")
+include("sms-api")
+include("bot-api")
+include("bot-svc")
+include("ical-svc")
+include("whoami-api")
+include("whoami-svc")
+include("web-app")
+include("backend")
+include("faraday")
