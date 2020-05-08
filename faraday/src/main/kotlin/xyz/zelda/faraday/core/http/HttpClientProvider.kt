@@ -5,9 +5,6 @@ import org.apache.http.impl.client.HttpClientBuilder.create
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory
 import org.springframework.web.client.RestTemplate
 import xyz.zelda.faraday.config.MappingProperties
-import java.util.*
-import java.util.function.Function
-import java.util.stream.Collectors
 
 class HttpClientProvider {
     protected var httpClients: HashMap<String, RestTemplate> = HashMap()

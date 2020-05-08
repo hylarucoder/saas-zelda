@@ -22,6 +22,7 @@ dependencies {
     implementation("structlog4j:structlog4j-json:1.0.0")
     implementation("org.apache.httpcomponents:httpclient:4.5.12")
     implementation("com.auth0:java-jwt:3.6.0")
+    implementation("io.sentry:sentry:1.7.17")
 
 
 

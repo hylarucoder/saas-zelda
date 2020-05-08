@@ -28,7 +28,7 @@ data class MappingProperties(
         /**
          * List of destination hosts where HTTP requests will be forwarded.
          */
-        val destinations: List<String>? = ArrayList(),
+        val destinations: List<String> = ArrayList(),
 
         /**
          * Custom properties placeholder.
