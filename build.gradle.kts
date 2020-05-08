@@ -1,7 +1,4 @@
-  
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
-
 
 plugins {
     val kotlinVersion = "1.3.70"
@@ -12,7 +9,7 @@ plugins {
 }
 
 allprojects {
-    group = "com.kotlin"
+    group = "xyz.zelda"
     version = "1.0.0"
 
     tasks.withType<JavaCompile> {
