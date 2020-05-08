@@ -20,16 +20,16 @@ import javax.annotation.PostConstruct
 import javax.annotation.PreDestroy
 
 @Configuration
-@EnableConfigurationProperties(ZeldaProps::class)
+@EnableConfigurationProperties(ZeldaInfraProperties::class)
 open class ZeldaConfig : WebMvcConfigurer {
     @Value("\${spring.profiles.active:NA}")
-    private val activeProfile: String? = null
+    lateinit var activeProfile: String
 
     @Value("\${spring.application.name:NA}")
-    private val appName: String? = null
+    lateinit var appName: String
 
     @Autowired
-    var staffjoyProps: ZeldaProps? = null
+    lateinit var zeldaInfraProperties: ZeldaInfraProperties
 
     @Bean
     open fun modelMapper(): ModelMapper {
@@ -38,14 +38,16 @@ open class ZeldaConfig : WebMvcConfigurer {
 
     @Bean
     open fun envConfig(): EnvConfig {
-        return activeProfile?.let { EnvConfig.getEnvConfig(it) }!!
+        println("------>active")
+        println(activeProfile)
+        return EnvConfig.getEnvConfig(activeProfile)!!
     }
 
     @Bean
     open fun sentryClient(): SentryClient {
-        val sentryClient: SentryClient = Sentry.init(staffjoyProps?.sentryDsn)
+        val sentryClient: SentryClient = Sentry.init(zeldaInfraProperties.sentryDsn)
         sentryClient.environment = activeProfile
-        sentryClient.release = staffjoyProps!!.deployEnv
+        sentryClient.release = zeldaInfraProperties.deployEnv
         sentryClient.addTag("service", appName)
         return sentryClient
     }

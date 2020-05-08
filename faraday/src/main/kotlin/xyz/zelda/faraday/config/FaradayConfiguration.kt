@@ -114,7 +114,7 @@ class FaradayConfiguration(
         mappingsValidator: MappingsValidator,
         httpClientProvider: HttpClientProvider
     ): MappingsProvider {
-        return if (faradayProperties.isEnableProgrammaticMapping) {
+        return if (faradayProperties.enableProgrammaticMapping) {
             ProgrammaticMappingsProvider(
                 envConfig,
                 serverProperties,

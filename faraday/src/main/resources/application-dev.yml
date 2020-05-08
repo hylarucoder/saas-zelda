@@ -3,7 +3,7 @@ server:
 
 
 faraday:
-  enable_programmatic_mapping: false
+  enable-programmatic-mapping: false
   tracing:
     enabled: false
   mappings:

@@ -1,6 +1,6 @@
 package xyz.zelda.faraday.config
 
-class TimeoutProperties(
+data class TimeoutProperties(
 
         /**
          * Connect timeout for HTTP requests forwarding.

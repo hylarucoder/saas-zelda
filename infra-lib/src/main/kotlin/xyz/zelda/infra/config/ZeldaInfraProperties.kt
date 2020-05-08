@@ -4,5 +4,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.boot.context.properties.ConstructorBinding
 
 @ConstructorBinding
-@ConfigurationProperties("zelda")
-data class ZeldaProperties(val signingSecret: String)
+@ConfigurationProperties("zelda.infra")
+data class ZeldaInfraProperties(
+    val sentryDsn: String,
+    val deployEnv: String
+)
