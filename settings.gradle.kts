@@ -1,5 +1,6 @@
 rootProject.name = "zelda-parent"
 
+include("infra-lib")
 include("common-lib")
 include("account-svc")
 include("account-api")
@@ -14,6 +15,7 @@ include("bot-svc")
 include("ical-svc")
 include("whoami-api")
 include("whoami-svc")
+include("icalc-svc")
 include("web-app")
 include("backend")
 include("faraday")
