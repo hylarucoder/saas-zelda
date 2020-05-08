@@ -46,12 +46,12 @@ class FaradayConfiguration(
     protected val zeldaProperties: ZeldaProperties,
     protected val assetLoader: AssetLoader
 ) {
-@Bean
-fun faradayReverseProxyFilterRegistrationBean(
-        proxyFilter: ReverseProxyFilter): FilterRegistrationBean<ReverseProxyFilter> {
-    val registrationBean = FilterRegistrationBean(proxyFilter)
-        registrationBean.order = faradayProperties.filterOrder // by default to Ordered.HIGHEST_PRECEDENCE + 100
-        return registrationBean
+    @Bean
+    fun faradayReverseProxyFilterRegistrationBean(
+            proxyFilter: ReverseProxyFilter): FilterRegistrationBean<ReverseProxyFilter> {
+        val registrationBean = FilterRegistrationBean(proxyFilter)
+            registrationBean.order = faradayProperties.filterOrder // by default to Ordered.HIGHEST_PRECEDENCE + 100
+            return registrationBean
     }
 
     @Bean

@@ -1,7 +1,5 @@
 package xyz.zelda.faraday.config
 
-import java.util.*
-
 class TimeoutProperties(
 
         /**

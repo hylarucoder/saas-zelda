@@ -14,27 +14,27 @@ data class FaradayProperties(
         /**
          * Faraday servlet filter order.
          */
-        var filterOrder: Int = Ordered.HIGHEST_PRECEDENCE + 100,
+        val filterOrder: Int = Ordered.HIGHEST_PRECEDENCE + 100,
 
         /**
          * Enable programmatic mapping or not,
          * false only in dev environment, in dev we use mapping via configuration file
          */
-        var isEnableProgrammaticMapping: Boolean = true,
+        val isEnableProgrammaticMapping: Boolean = true,
 
         /**
          * Properties responsible for collecting metrics during HTTP requests forwarding.
          */
-        var metrics: MetricsProperties,
+        val metrics: MetricsProperties,
 
         /**
          * Properties responsible for tracing HTTP requests proxying processes.
          */
-        var tracing: TracingProperties,
+        val tracing: TracingProperties,
 
         /**
          * List of proxy mappings.
          */
-        var mappings: List<MappingProperties>
+        val mappings: ArrayList<MappingProperties>
 )
 

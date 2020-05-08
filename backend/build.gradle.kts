@@ -6,7 +6,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":common-lib"))
+    implementation(project(":infra-lib"))
 
     implementation(kotlin("reflect"))
     implementation(kotlin("stdlib-jdk8"))

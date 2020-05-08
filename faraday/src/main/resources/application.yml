@@ -11,8 +11,8 @@ server:
     whitelabel:
       enabled: false
 
-staffjoy:
-  common:
+zelda:
+  infra:
     sentry-dsn: ${SENTRY_DSN}
     deploy-env: ${DEPLOY:V2}
   signing-secret: ${SIGNING_SECRET}
