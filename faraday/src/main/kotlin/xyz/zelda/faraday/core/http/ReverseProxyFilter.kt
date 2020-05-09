@@ -38,21 +38,17 @@ class ReverseProxyFilter(
         val headers = extractor.extractHttpHeaders(request)
         val method = extractor.extractHttpMethod(request)
         val traceId = traceInterceptor.generateTraceId()
-        if (traceId != null){
-            traceInterceptor.onRequestReceived(traceId, method, originHost, originUri, headers)
-        }
+        traceInterceptor.onRequestReceived(traceId, method, originHost, originUri, headers)
         val mapping = mappingsProvider.resolveMapping(originHost, request)
         if (mapping == null) {
-            if (traceId != null) {
-                traceInterceptor.onNoMappingFound(traceId, method, originHost, originUri, headers)
-            }
+            traceInterceptor.onNoMappingFound(traceId, method, originHost, originUri, headers)
             log.debug(String.format("Forwarding: %s %s %s -> no mapping found", method, originHost, originUri))
             response.status = HttpServletResponse.SC_BAD_REQUEST
             response.writer.println("Unsupported domain")
             return
-        } else {
-            log.debug(String.format("Forwarding: %s %s %s -> %s", method, originHost, originUri, mapping.destinations))
         }
+
+        log.debug(String.format("Forwarding: %s %s %s -> %s", method, originHost, originUri, mapping.destinations))
         val body = extractor.extractBody(request)
         addForwardHeaders(request, headers)
         val dataToForward = RequestData(method, originHost, originUri, headers, body, request)
@@ -62,7 +58,7 @@ class ReverseProxyFilter(
             response.sendRedirect(dataToForward.redirectUrl)
             return
         }
-        val responseEntity: ResponseEntity<ByteArray> = requestForwarder.forwardHttpRequest(dataToForward, traceId!!, mapping)!!
+        val responseEntity: ResponseEntity<ByteArray> = requestForwarder.forwardHttpRequest(dataToForward, traceId, mapping)!!
         processResponse(response, responseEntity)
     }
 

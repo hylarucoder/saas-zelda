@@ -7,8 +7,9 @@ import xyz.zelda.faraday.config.FaradayProperties
 import java.util.*
 
 class ProxyingTraceInterceptor(protected val faradayProperties: FaradayProperties, protected val traceInterceptor: TraceInterceptor) {
-    fun generateTraceId(): String? {
-        return if (faradayProperties.tracing.enabled) UUID.randomUUID().toString() else null
+    fun generateTraceId(): String {
+        // TODO: traceid 生成规则是不是需要考量一下
+        return UUID.randomUUID().toString()
     }
 
     fun onRequestReceived(traceId: String, method: HttpMethod, host: String, uri: String, headers: HttpHeaders) {

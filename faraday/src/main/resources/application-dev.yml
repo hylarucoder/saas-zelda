@@ -9,42 +9,42 @@ faraday:
   mappings:
     -
       name: faraday_route
-      host: faraday.staffjoy-v2.local
+      host: faraday.zelda.local
       destinations: httpbin.org
     -
       name: account_route
-      host: account.staffjoy-v2.local
+      host: account.zelda.local
       destinations: localhost:8081
     -
       name: company_route
-      host: company.staffjoy-v2.local
+      host: company.zelda.local
       destinations: localhost:8082
     -
       name: ical_route
-      host: ical.staffjoy-v2.local
+      host: ical.zelda.local
       destinations: localhost:8083
     -
       name: whoami_route
-      host: whoami.staffjoy-v2.local
+      host: whoami.zelda.local
       destinations: localhost:8084
       timeout:
         connect: 10000
         read: 10000
     -
       name: superpowers_route
-      host: superpowers.staffjoy-v2.local
+      host: superpowers.zelda.local
       destinations: localhost:8085
     -
       name: www_route
-      host: www.staffjoy-v2.local
+      host: www.zelda.local
       destinations: localhost:8086
     -
       name: myaccount_route
-      host: myaccount.staffjoy-v2.local
+      host: myaccount.zelda.local
       destinations: localhost:9000
     -
       name: app_route
-      host: app.staffjoy-v2.local
+      host: app.zelda.local
       destinations: localhost:9001
 management:
   endpoints:

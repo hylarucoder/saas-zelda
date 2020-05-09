@@ -13,7 +13,7 @@ import kotlin.collections.HashMap
  * KEEP THIS LIST IN ALPHABETICAL ORDER PLEASE
 </string> */
 object ServiceDirectory {
-    var mapping: Map<String, Service>? = null
+    var mapping: Map<String, Service>
 
     init {
         val map: HashMap<String, Service> = HashMap()
