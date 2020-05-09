@@ -26,7 +26,7 @@ import xyz.zelda.infra.auth.AuthConstant;
 import xyz.zelda.infra.auth.AuthContext;
 import xyz.zelda.infra.crypto.Sign;
 import xyz.zelda.infra.env.EnvConfig;
-import xyz.zelda.infra.error.ServiceException;
+import xyz.zelda.infra.exception.ServiceException;
 import xyz.zelda.infra.utils.Helper;
 import xyz.zelda.mail.client.MailClient;
 import xyz.zelda.mail.dto.EmailRequest;

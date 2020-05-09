@@ -1,18 +1,10 @@
 package xyz.zelda.company.dto
 
-import lombok.AllArgsConstructor
-import lombok.Builder
-import lombok.Data
-import lombok.NoArgsConstructor
 import java.time.Instant
 import javax.validation.constraints.AssertTrue
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.NotNull
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder(toBuilder = true)
 class ShiftDto {
     @NotBlank
     private val id: String? = null

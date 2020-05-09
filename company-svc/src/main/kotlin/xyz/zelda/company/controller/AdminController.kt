@@ -10,7 +10,7 @@ import xyz.zelda.infra.auth.AuthConstant
 import xyz.zelda.infra.auth.AuthContext
 import xyz.zelda.infra.auth.Authorize
 import xyz.zelda.infra.auth.PermissionDeniedException
-import xyz.zelda.infra.error.ServiceException
+import xyz.zelda.infra.exception.ServiceException
 
 @RestController
 @RequestMapping("/v1/company/admin")

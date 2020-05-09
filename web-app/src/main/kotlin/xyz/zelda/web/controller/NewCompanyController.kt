@@ -15,7 +15,7 @@ import xyz.zelda.infra.auth.AuthConstant
 import xyz.zelda.infra.auth.AuthContext
 import xyz.zelda.infra.env.EnvConfig
 import xyz.zelda.infra.env.EnvConstant
-import xyz.zelda.infra.error.ServiceException
+import xyz.zelda.infra.exception.ServiceException
 import xyz.zelda.company.client.CompanyClient
 import xyz.zelda.company.dto.*
 import xyz.zelda.web.service.HelperService

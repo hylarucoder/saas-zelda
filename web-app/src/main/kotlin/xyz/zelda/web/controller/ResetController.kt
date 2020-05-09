@@ -11,7 +11,7 @@ import xyz.zelda.account.client.AccountClient
 import xyz.zelda.account.dto.PasswordResetRequest
 import xyz.zelda.infra.api.BaseResponse
 import xyz.zelda.infra.auth.AuthConstant
-import xyz.zelda.infra.error.ServiceException
+import xyz.zelda.infra.exception.ServiceException
 import xyz.zelda.web.service.HelperService
 import xyz.zelda.web.view.Constant
 import xyz.zelda.web.view.PageFactory

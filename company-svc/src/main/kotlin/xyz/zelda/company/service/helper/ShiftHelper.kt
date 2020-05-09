@@ -15,7 +15,7 @@ import xyz.zelda.company.service.TeamService
 import xyz.zelda.infra.api.ResultCode
 import xyz.zelda.infra.auditlog.LogEntry
 import xyz.zelda.infra.auth.AuthContext
-import xyz.zelda.infra.error.ServiceException
+import xyz.zelda.infra.exception.ServiceException
 
 @Component
 class ShiftHelper {

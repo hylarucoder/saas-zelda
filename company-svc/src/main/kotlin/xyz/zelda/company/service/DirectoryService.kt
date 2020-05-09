@@ -19,7 +19,7 @@ import xyz.zelda.infra.api.ResultCode
 import xyz.zelda.infra.auditlog.LogEntry
 import xyz.zelda.infra.auth.AuthConstant
 import xyz.zelda.infra.auth.AuthContext
-import xyz.zelda.infra.error.ServiceException
+import xyz.zelda.infra.exception.ServiceException
 
 @Service
 class DirectoryService {

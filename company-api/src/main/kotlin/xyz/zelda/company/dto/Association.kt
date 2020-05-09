@@ -1,12 +1,7 @@
 package xyz.zelda.company.dto
 
-import lombok.*
 import java.util.*
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
 class Association {
     private val account: DirectoryEntryDto? = null
 

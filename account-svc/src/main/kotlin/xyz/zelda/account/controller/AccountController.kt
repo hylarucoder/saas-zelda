@@ -5,15 +5,17 @@ import com.github.structlog4j.SLoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.util.StringUtils
 import org.springframework.validation.annotation.Validated
+import org.springframework.web.bind.annotation.*
+import xyz.zelda.account.dto.*
 import xyz.zelda.account.service.AccountService
 import xyz.zelda.infra.api.BaseResponse
 import xyz.zelda.infra.auth.AuthConstant
 import xyz.zelda.infra.auth.AuthContext
 import xyz.zelda.infra.auth.Authorize
-import xyz.zelda.infra.auth.PermissionDeniedException
+import xyz.zelda.infra.env.ENV
 import xyz.zelda.infra.env.EnvConfig
-import xyz.zelda.infra.env.EnvConstant
-import xyz.zelda.infra.error.ServiceException
+import xyz.zelda.infra.exception.PermissionDeniedException
+import xyz.zelda.infra.exception.ServiceException
 import xyz.zelda.infra.validation.PhoneNumber
 import javax.validation.Valid
 import javax.validation.constraints.Min
@@ -155,7 +157,7 @@ class AccountController {
 
     private fun validateEnv() {
         if (AuthConstant.AUTHORIZATION_SUPERPOWERS_SERVICE.equals(AuthContext.getAuthz())) {
-            if (!EnvConstant.ENV_DEV.equals(envConfig.getName())) {
+            if (!ENV.DEV == envConfig.name) {
                 logger.warn("Development service trying to connect outside development environment")
                 throw PermissionDeniedException("This service is not available outside development environments")
             }

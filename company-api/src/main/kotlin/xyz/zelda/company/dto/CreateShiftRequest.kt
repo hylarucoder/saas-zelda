@@ -1,19 +1,11 @@
 package xyz.zelda.company.dto
 
-import lombok.AllArgsConstructor
-import lombok.Builder
-import lombok.Data
-import lombok.NoArgsConstructor
 import java.time.Instant
 import java.util.concurrent.TimeUnit
 import javax.validation.constraints.AssertTrue
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.NotNull
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
 class CreateShiftRequest {
     @NotBlank
     private val companyId: String? = null

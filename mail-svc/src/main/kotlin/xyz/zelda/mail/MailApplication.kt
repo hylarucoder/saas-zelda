@@ -1,12 +1,14 @@
 package xyz.zelda.mail
 
-import org.springframework.boot.SpringApplication
+import org.springframework.boot.Banner
 import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+import org.springframework.boot.runApplication
 
-object MailApplication {
-    @JvmStatic
-    fun main(args: Array<String>) {
-        SpringApplication.run(MailApplication::class.java, args)
+@SpringBootApplication
+open class MailApplication
+
+fun main(args: Array<String>) {
+    runApplication<MailApplication>(*args){
+        setBannerMode(Banner.Mode.CONSOLE)
     }
 }

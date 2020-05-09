@@ -2,6 +2,7 @@ package xyz.zelda.company.client
 
 import org.springframework.cloud.openfeign.FeignClient
 import org.springframework.validation.annotation.Validated
+import org.springframework.web.bind.annotation.*
 import xyz.zelda.company.CompanyConstant
 import xyz.zelda.company.dto.*
 import xyz.zelda.infra.api.BaseResponse

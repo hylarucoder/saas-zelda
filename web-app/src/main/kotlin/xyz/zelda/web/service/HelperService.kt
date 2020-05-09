@@ -11,7 +11,7 @@ import xyz.zelda.account.dto.AccountDto
 import xyz.zelda.account.dto.SyncUserRequest
 import xyz.zelda.account.dto.TrackEventRequest
 import xyz.zelda.infra.api.BaseResponse
-import xyz.zelda.infra.error.ServiceException
+import xyz.zelda.infra.exception.ServiceException
 import xyz.zelda.company.dto.CompanyDto
 import xyz.zelda.mail.client.MailClient
 import xyz.zelda.mail.dto.EmailRequest

@@ -15,7 +15,7 @@ import xyz.zelda.company.dto.GetWorkerOfResponse
 import xyz.zelda.company.dto.WorkerOfList
 import xyz.zelda.infra.auth.AuthConstant
 import xyz.zelda.infra.crypto.Hash
-import xyz.zelda.infra.error.ServiceException
+import xyz.zelda.infra.exception.ServiceException
 import xyz.zelda.whoami.dto.IAmDto
 import xyz.zelda.whoami.dto.IntercomSettingsDto
 import xyz.zelda.whoami.props.AppProps

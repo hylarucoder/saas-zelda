@@ -8,15 +8,15 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
 import xyz.zelda.infra.async.ContextCopyingDecorator
-import xyz.zelda.infra.config.StaffjoyRestConfig
+import xyz.zelda.infra.config.ZeldaRestConfig
 import java.util.concurrent.Executor
 
 @Configuration
 @EnableAsync
-@Import(value = [StaffjoyRestConfig::class])
-class AppConfig {
-    @Bean(name = ASYNC_EXECUTOR_NAME)
-    fun asyncExecutor(): Executor {
+@Import(value = [ZeldaRestConfig::class])
+open class AppConfig {
+    @Bean(name = [ASYNC_EXECUTOR_NAME])
+    open fun asyncExecutor(): Executor {
         val executor = ThreadPoolTaskExecutor()
         // for passing in request scope context
         executor.setTaskDecorator(ContextCopyingDecorator())
@@ -30,7 +30,7 @@ class AppConfig {
     }
 
     @Bean
-    fun passwordEncoder(): PasswordEncoder {
+    open fun passwordEncoder(): PasswordEncoder {
         return BCryptPasswordEncoder()
     }
 

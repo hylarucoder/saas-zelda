@@ -1,9 +1,5 @@
 package xyz.zelda.company.dto
 
-import lombok.AllArgsConstructor
-import lombok.Builder
-import lombok.Data
-import lombok.NoArgsConstructor
 import xyz.zelda.infra.validation.DayOfWeek
 import xyz.zelda.infra.validation.Timezone
 import javax.validation.constraints.NotBlank
@@ -11,10 +7,6 @@ import javax.validation.constraints.NotEmpty
 import javax.validation.constraints.NotNull
 import javax.validation.constraints.Pattern
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
 class TeamDto {
     @NotBlank
     private val id: String? = null

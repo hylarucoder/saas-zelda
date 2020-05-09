@@ -1,30 +1,20 @@
 package xyz.zelda.account.model
 
-import lombok.AllArgsConstructor
-import lombok.Builder
-import lombok.Data
-import lombok.NoArgsConstructor
 import org.hibernate.annotations.GenericGenerator
+import javax.persistence.*
 import java.time.Instant
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 @Entity
-class Account {
-    @Id
-    @GenericGenerator(name = "system-uuid", strategy = "uuid")
-    @GeneratedValue(generator = "system-uuid")
-    private val id: String? = null
-    private val name: String? = null
-    private val email: String? = null
-    private val confirmedAndActive = false
-    private val memberSince: Instant? = null
-    private val support = false
-    private val phoneNumber: String? = null
-    private val photoUrl: String? = null
-}
+class Account(
+        @Id
+        @GenericGenerator(name = "system-uuid", strategy = "uuid")
+        @GeneratedValue(generator = "system-uuid")
+        val id: String? = null,
+        val name: String? = null,
+        val email: String? = null,
+        val confirmedAndActive: Boolean = false,
+        val memberSince: Instant? = null,
+        val support: Boolean = false,
+        val phoneNumber: String? = null,
+        val photoUrl: String? = null
+)

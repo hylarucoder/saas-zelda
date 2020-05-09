@@ -15,7 +15,7 @@ import xyz.zelda.company.dto.ShiftDto
 import xyz.zelda.infra.api.BaseResponse
 import xyz.zelda.infra.auth.AuthContext
 import xyz.zelda.infra.env.EnvConfig
-import xyz.zelda.infra.error.ServiceException
+import xyz.zelda.infra.exception.ServiceException
 import java.time.Instant
 
 @Component

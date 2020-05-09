@@ -1,12 +1,14 @@
 package xyz.zelda.account
 
-import org.springframework.boot.SpringApplication
+import org.springframework.boot.Banner
 import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.cloud.openfeign.EnableFeignClients
+import org.springframework.boot.runApplication
 
-object AccountApplication {
-    @JvmStatic
-    fun main(args: Array<String>) {
-        SpringApplication.run(AccountApplication::class.java, args)
+@SpringBootApplication
+open class AccountApplication
+
+fun main(args: Array<String>) {
+    runApplication<AccountApplication>(*args){
+        setBannerMode(Banner.Mode.CONSOLE)
     }
 }

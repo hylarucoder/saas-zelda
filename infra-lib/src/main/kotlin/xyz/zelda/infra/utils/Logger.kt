@@ -1,8 +1,8 @@
 package xyz.zelda.infra.utils
 
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
+import com.github.structlog4j.ILogger
+import com.github.structlog4j.SLoggerFactory
 
-inline fun <reified T> T.logger(): Logger {
-    return LoggerFactory.getLogger(T::class.java)
+inline fun <reified T> T.loggerFor(): ILogger {
+    return SLoggerFactory.getLogger(T::class.java)
 }

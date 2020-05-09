@@ -1,19 +1,11 @@
 package xyz.zelda.company.dto
 
-import lombok.AllArgsConstructor
-import lombok.Builder
-import lombok.Data
-import lombok.NoArgsConstructor
 import xyz.zelda.infra.validation.DayOfWeek
 import xyz.zelda.infra.validation.Group1
 import xyz.zelda.infra.validation.Group2
 import xyz.zelda.infra.validation.Timezone
 import javax.validation.constraints.NotBlank
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
 class CompanyDto {
     @NotBlank(groups = [Group1::class])
     private val id: String? = null

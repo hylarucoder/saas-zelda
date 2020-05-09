@@ -1,14 +1,11 @@
 package xyz.zelda.account.service.helper
 
-import com.github.structlog4j.ILogger
-import com.github.structlog4j.SLoggerFactory
 import com.google.common.collect.Maps
 import io.intercom.api.Avatar
 import io.intercom.api.CustomAttribute
 import io.intercom.api.Event
 import io.intercom.api.User
 import io.sentry.SentryClient
-import lombok.RequiredArgsConstructor
 import org.springframework.scheduling.annotation.Async
 import org.springframework.stereotype.Component
 import org.springframework.util.StringUtils
@@ -17,27 +14,30 @@ import xyz.zelda.account.repo.AccountRepo
 import xyz.zelda.bot.client.BotClient
 import xyz.zelda.bot.dto.GreetingRequest
 import xyz.zelda.company.client.CompanyClient
+import xyz.zelda.company.dto.CompanyDto
+import xyz.zelda.company.dto.GetWorkerOfResponse
+import xyz.zelda.company.dto.WorkerOfList
 import xyz.zelda.infra.api.BaseResponse
 import xyz.zelda.infra.api.ResultCode
 import xyz.zelda.infra.auth.AuthConstant
 import xyz.zelda.infra.env.EnvConfig
-import xyz.zelda.infra.error.ServiceException
+import xyz.zelda.infra.exception.ServiceException
+import xyz.zelda.infra.utils.loggerFor
 import java.time.Instant
 import java.util.*
 import java.util.concurrent.TimeUnit
 
-@RequiredArgsConstructor
 @Component
 class ServiceHelper {
-    private val companyClient: CompanyClient? = null
-    private val accountRepo: AccountRepo? = null
-    private val sentryClient: SentryClient? = null
-    private val botClient: BotClient? = null
-    private val envConfig: EnvConfig? = null
+    lateinit var companyClient: CompanyClient
+    lateinit var accountRepo: AccountRepo
+    lateinit var sentryClient: SentryClient
+    lateinit var botClient: BotClient
+    lateinit var envConfig: EnvConfig
 
     @Async(AppConfig.ASYNC_EXECUTOR_NAME)
     fun syncUserAsync(userId: String?) {
-        if (envConfig.isDebug()) {
+        if (envConfig.debug) {
             logger.debug("intercom disabled in dev & test environment")
             return
         }
@@ -121,15 +121,11 @@ class ServiceHelper {
             val params: MutableMap<String, String> = Maps.newHashMap()
             params["user_id"] = userId
             val existing: User = User.find(params)
-            if (existing != null) {
-                User.update(user)
-            } else {
-                User.create(user)
-            }
+            User.update(user)
             logger.debug("updated intercom")
         } catch (ex: Exception) {
             val errMsg = "fail to create/update user on Intercom"
-            handleException(logger, ex, errMsg)
+            handleException(ex, errMsg)
             throw ServiceException(errMsg, ex)
         }
     }
@@ -161,11 +157,11 @@ class ServiceHelper {
             botClient.sendSmsGreeting(greetingRequest)
         } catch (ex: Exception) {
             val errMsg = "could not send welcome sms"
-            handleException(logger, ex, errMsg)
+            handleException(ex, errMsg)
             throw ServiceException(errMsg, ex)
         }
         if (!baseResponse.isSuccess()) {
-            handleError(logger, baseResponse.getMessage())
+            handleError(baseResponse.getMessage())
             throw ServiceException(baseResponse.getMessage())
         }
     }
@@ -179,21 +175,21 @@ class ServiceHelper {
         } else false
     }
 
-    fun handleError(log: ILogger, errMsg: String?) {
-        log.error(errMsg)
-        if (!envConfig.isDebug()) {
+    fun handleError(errMsg: String?) {
+        logger.error(errMsg)
+        if (!envConfig.debug) {
             sentryClient.sendMessage(errMsg)
         }
     }
 
-    fun handleException(log: ILogger, ex: Exception?, errMsg: String?) {
+    fun handleException(ex: Exception?, errMsg: String?) {
         log.error(errMsg, ex)
-        if (!envConfig.isDebug()) {
+        if (!envConfig.debug) {
             sentryClient.sendException(ex)
         }
     }
 
     companion object {
-        val logger: ILogger = SLoggerFactory.getLogger(ServiceHelper::class.java)
+        private val logger = loggerFor()
     }
 }

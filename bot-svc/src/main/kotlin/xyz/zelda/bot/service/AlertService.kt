@@ -11,7 +11,7 @@ import xyz.zelda.bot.BotConstant
 import xyz.zelda.company.client.CompanyClient
 import xyz.zelda.infra.api.ResultCode
 import xyz.zelda.infra.auth.AuthConstant
-import xyz.zelda.infra.error.ServiceException
+import xyz.zelda.infra.exception.ServiceException
 import java.time.Instant
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter

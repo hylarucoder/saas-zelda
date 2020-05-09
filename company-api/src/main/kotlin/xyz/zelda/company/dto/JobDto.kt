@@ -1,14 +1,5 @@
 package xyz.zelda.company.dto
 
-import lombok.AllArgsConstructor
-import lombok.Builder
-import lombok.Data
-import lombok.NoArgsConstructor
-
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
 class JobDto {
     @NotBlank
     private val id: String? = null

@@ -19,7 +19,7 @@ import xyz.zelda.company.dto.GenericCompanyResponse
 import xyz.zelda.infra.api.BaseResponse
 import xyz.zelda.infra.auth.AuthConstant
 import xyz.zelda.infra.env.EnvConfig
-import xyz.zelda.infra.error.ServiceException
+import xyz.zelda.infra.exception.ServiceException
 import xyz.zelda.mail.client.MailClient
 import xyz.zelda.mail.dto.EmailRequest
 import xyz.zelda.sms.client.SmsClient

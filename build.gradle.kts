@@ -6,6 +6,7 @@ plugins {
     id("io.spring.dependency-management") version "1.0.8.RELEASE" apply false
     kotlin("jvm") version kotlinVersion apply false
     kotlin("plugin.spring") version kotlinVersion apply false
+    kotlin("plugin.allopen") version kotlinVersion apply false
 }
 
 allprojects {
@@ -63,3 +64,4 @@ subprojects {
 
     }
 }
+
