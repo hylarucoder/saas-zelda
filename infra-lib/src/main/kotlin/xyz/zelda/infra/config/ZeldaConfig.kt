@@ -38,8 +38,6 @@ open class ZeldaConfig : WebMvcConfigurer {
 
     @Bean
     open fun envConfig(): EnvConfig {
-        println("------>active")
-        println(activeProfile)
         return EnvConfig.getEnvConfig(activeProfile)!!
     }
 

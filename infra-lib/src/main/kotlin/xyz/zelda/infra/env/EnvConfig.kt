@@ -16,28 +16,28 @@ data class EnvConfig(val name: String?, val debug: Boolean = false, val external
             hashMap[ENV.DEV.name] = EnvConfig(
                     ENV.DEV.name,
                     true,
-                    "staffjoy-v2.local",
+                    "zelda.local",
                     ENV.DEV.name,
                     "http"
             )
             hashMap[ENV.TEST.name] = EnvConfig(
                     ENV.TEST.name,
                     true,
-                    "staffjoy-v2.local",
+                    "zelda.local",
                     ENV.TEST.name,
                     "http"
             )
             hashMap[ENV.UAT.name] = EnvConfig(
                     ENV.UAT.name,
                     true,
-                    "staffjoy-uat.local",
+                    "zelda-uat.local",
                     ENV.UAT.name,
                     "http"
             )
             hashMap[ENV.PROD.name] = EnvConfig(
                     ENV.PROD.name,
                     true,
-                    "staffjoy.com",
+                    "zelda.com",
                     ENV.PROD.name,
                     "http"
             )

@@ -54,7 +54,11 @@ class AuthRequestInterceptor(private val signingSecret: String, private val envC
             headers[AuthConstant.CURRENT_USER_HEADER] = session.userId
         } else {
             // prevent hacking
-            headers.remove(AuthConstant.CURRENT_USER_HEADER)
+            println("prevent hacking")
+            println(headers)
+            if (headers.contains(AuthConstant.CURRENT_USER_HEADER)){
+                headers.remove(AuthConstant.CURRENT_USER_HEADER)
+            }
         }
         headers[AuthConstant.AUTHORIZATION_HEADER] = authorization
         return authorization
@@ -70,8 +74,7 @@ class AuthRequestInterceptor(private val signingSecret: String, private val envC
     private fun getService(mapping: MappingProperties): Service {
         val host = mapping.host
         val subDomain = host.replace("." + envConfig.externalApex, "")
-        return ServiceDirectory.mapping?.get(subDomain.toLowerCase())
-                ?: throw FaradayException("Unsupported sub-domain $subDomain")
+        return ServiceDirectory.mapping[subDomain.toLowerCase()] ?: throw FaradayException("Unsupported sub-domain $subDomain")
     }
 
     private fun validateRestrict(mapping: MappingProperties) {
