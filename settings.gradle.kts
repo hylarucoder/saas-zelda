@@ -1,4 +1,4 @@
-rootProject.name = "zelda-parent"
+rootProject.name = "zelda-mono"
 
 include("infra-lib")
 include("account-svc")

@@ -24,10 +24,6 @@ dependencies {
     implementation("com.auth0:java-jwt:3.6.0")
     implementation("io.sentry:sentry:1.7.17")
 
-
-
-
-
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     implementation(kotlin("stdlib-jdk8"))
 
