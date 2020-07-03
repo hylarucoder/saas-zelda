@@ -1,0 +1,19 @@
+# application.yml
+
+spring:
+  profiles:
+    active: DEV
+  application:
+    name: faraday-service
+
+server:
+  error:
+    whitelabel:
+      enabled: false
+
+zelda:
+  infra:
+    sentry-dsn: https://4a6a7fbbd55b46c6b6f0ea71d5f52927@o280215.ingest.sentry.io/5228407
+    deploy-env: ${DEPLOY:V2}
+  signing-secret: lasjdlasdkjl
+

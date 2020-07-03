@@ -1,10 +1,8 @@
-# zelda
+# zelda spring
 
-Kotlin/Spring Boot/Kubernetes 的微服务项目
+spring base for middle scale architecture
 
 ## NOTE 
-
-已废弃, 理由如下
 
 - Spring Cloud 技术栈与 Java 绑定过于严重
 - Java 编写代码过于冗长, 即便是使用 Kotlin, 依旧无法改变
