@@ -1,2 +1,0 @@
-package xyz.zelda.starters
-

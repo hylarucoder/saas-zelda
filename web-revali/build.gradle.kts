@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":infra-lib"))
+    implementation(project(":infra-spring"))
     implementation(kotlin("stdlib-jdk8"))
     implementation(kotlin("reflect"))
     implementation("org.springframework.cloud:spring-cloud-starter-openfeign:2.1.0.RELEASE")

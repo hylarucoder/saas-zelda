@@ -1,7 +1,7 @@
 rootProject.name = "zelda-spring"
 
 include("infra-starters")
-include("infra-lib")
+include("infra-spring")
 include("api-picasso")
 include("srv-picasso")
 include("web-daruk")
