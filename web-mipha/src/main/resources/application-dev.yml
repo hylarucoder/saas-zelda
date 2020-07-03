@@ -1,0 +1,53 @@
+server:
+  port: 80
+
+
+faraday:
+  enable-programmatic-mapping: false
+  tracing:
+    enabled: false
+  mappings:
+    -
+      name: faraday_route
+      host: faraday.zelda.local
+      destinations: httpbin.org
+    -
+      name: account_route
+      host: account.zelda.local
+      destinations: localhost:8081
+    -
+      name: company_route
+      host: company.zelda.local
+      destinations: localhost:8082
+    -
+      name: ical_route
+      host: ical.zelda.local
+      destinations: localhost:8083
+    -
+      name: whoami_route
+      host: whoami.zelda.local
+      destinations: localhost:8084
+      timeout:
+        connect: 10000
+        read: 10000
+    -
+      name: superpowers_route
+      host: superpowers.zelda.local
+      destinations: localhost:8085
+    -
+      name: www_route
+      host: www.zelda.local
+      destinations: localhost:8086
+    -
+      name: myaccount_route
+      host: myaccount.zelda.local
+      destinations: localhost:9000
+    -
+      name: app_route
+      host: app.zelda.local
+      destinations: localhost:9001
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
