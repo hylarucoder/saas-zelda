@@ -1,6 +1,6 @@
 rootProject.name = "zelda-spring"
 
-include("spring-boot-starters")
+include("infra-starters")
 include("infra-lib")
 include("api-picasso")
 include("srv-picasso")
