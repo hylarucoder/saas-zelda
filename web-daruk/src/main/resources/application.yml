@@ -5,6 +5,11 @@ spring:
     active: DEV
   application:
     name: web-daruk
+  datasource:
+    hikari:
+      jdbc-url: jdbc:postgresql://localhost:5432/zelda
+      username: zelda
+      password: zelda
 
 server:
   error:
@@ -18,3 +23,5 @@ server:
 sentry:
   dsn: https://4a6a7fbbd55b46c6b6f0ea71d5f52927@o280215.ingest.sentry.io/5228407
 
+daruk:
+  dsn: https://4a6a7fbbd55b46c6b6f0ea71d5f52927@o280215.ingest.sentry.io/5228407

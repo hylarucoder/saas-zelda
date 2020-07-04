@@ -14,7 +14,6 @@ dependencies {
 //    implementation("com.fasterxml.jackson.module:jackson-module-jaxb-annotations")
 //    implementation("com.zaxxer:HikariCP")
 //    implementation("io.dropwizard.metrics:metrics-core")
-//    implementation("io.jsonwebtoken:jjwt-api")
 //    implementation("io.micrometer:micrometer-registry-prometheus")
 //    implementation("javax.annotation:javax.annotation-api")
 //    implementation("javax.transaction:javax.transaction-api")
@@ -34,11 +33,11 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web:2.2.0.RELEASE")
     implementation("org.springframework.boot:spring-boot-starter:2.2.0.RELEASE")
     implementation("org.springframework.cloud:spring-cloud-starter-openfeign:2.1.0.RELEASE")
-//    implementation("org.springframework.security:spring-security-config:2.2.0.RELEASE")
-//    implementation("org.springframework.security:spring-security-data:2.2.0.RELEASE")
-//    implementation("org.springframework.security:spring-security-web:2.2.0.RELEASE")
+    implementation("org.springframework.security:spring-security-config:5.3.0.RELEASE")
+    implementation("org.springframework.security:spring-security-data:5.3.0.RELEASE")
+    implementation("org.springframework.security:spring-security-web:5.3.0.RELEASE")
     implementation("org.jetbrains.exposed:exposed-spring-boot-starter:0.21.1")
-//    implementation("org.zalando:problem-spring-webflux")
+    implementation("com.auth0:java-jwt:3.10.3")
 
     runtimeOnly("org.springframework.boot:spring-boot-devtools:2.2.0.RELEASE")
 
