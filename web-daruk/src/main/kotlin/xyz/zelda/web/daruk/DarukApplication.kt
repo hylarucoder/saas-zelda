@@ -11,7 +11,7 @@ import xyz.zelda.web.daruk.config.DarukProperties
 open class DarukApplication
 
 fun main(args: Array<String>) {
-    runApplication<DarukApplication>(*args){
+    runApplication<DarukApplication>(*args) {
         setBannerMode(Banner.Mode.CONSOLE)
     }
 }

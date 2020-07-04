@@ -4,12 +4,10 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
-import org.springframework.web.server.ResponseStatusException
-import xyz.zelda.infra.api.ResultCode
 
 @RestController
 @RequestMapping("/api/article")
-class ArticleController() {
+class ArticleController {
 
     @GetMapping("/")
     fun findAll(): String {
@@ -23,7 +21,7 @@ class ArticleController() {
 
 @RestController
 @RequestMapping("/api/user")
-class UserController() {
+class UserController {
 
     @GetMapping("/")
     fun findAll(): String {

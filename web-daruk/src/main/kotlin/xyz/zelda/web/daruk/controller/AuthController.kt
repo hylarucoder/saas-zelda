@@ -12,7 +12,7 @@ import javax.validation.Valid
 @RequestMapping("/api/account")
 class AuthController {
     @PostMapping("/login")
-    fun login(@RequestBody loginRequest: @Valid LoginRequest?): ResponseEntity<*>{
+    fun login(@RequestBody loginRequest: @Valid LoginRequest?): ResponseEntity<*> {
         return ResponseEntity.ok<Any>(MessageResponse("wocao"))
     }
 

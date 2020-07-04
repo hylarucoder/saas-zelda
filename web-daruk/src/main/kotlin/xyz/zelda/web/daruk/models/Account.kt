@@ -11,7 +11,7 @@ object AdminStaffs : IntIdTable() {
     val age = integer("age")
 }
 
-object Cities: IntIdTable() {
+object Cities : IntIdTable() {
     val name = varchar("name", 50)
 }
 
