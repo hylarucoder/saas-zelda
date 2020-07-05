@@ -1,6 +1,5 @@
-package xyz.zelda.web.daruk.security
+package xyz.zelda.web.daruk.config
 
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.authentication.AuthenticationManager
@@ -13,18 +12,17 @@ import org.springframework.security.config.http.SessionCreationPolicy
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
-import xyz.zelda.web.daruk.security.jwt.AuthEntryPointJwt
 import xyz.zelda.web.daruk.security.jwt.AuthTokenFilter
 
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 open class WebSecurityConfig : WebSecurityConfigurerAdapter() {
-    @Autowired
-    var userDetailsService: UserDetailsServiceImpl? = null
-
-    @Autowired
-    private val unauthorizedHandler: AuthEntryPointJwt? = null
+//    @Autowired
+//    var userDetailsService: UserDetailsServiceImpl? = null
+//
+//    @Autowired
+//    private val unauthorizedHandler: AuthEntryPointJwt? = null
 
     @Bean
     open fun authenticationJwtTokenFilter(): AuthTokenFilter {
@@ -33,7 +31,7 @@ open class WebSecurityConfig : WebSecurityConfigurerAdapter() {
 
     @Throws(Exception::class)
     override fun configure(authenticationManagerBuilder: AuthenticationManagerBuilder) {
-        authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder())
+//        authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder())
     }
 
     @Bean
@@ -50,7 +48,7 @@ open class WebSecurityConfig : WebSecurityConfigurerAdapter() {
     @Throws(Exception::class)
     override fun configure(http: HttpSecurity) {
         http.cors().and().csrf().disable()
-                .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
+//                .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests().antMatchers("/api/auth/**").permitAll()
                 .antMatchers("/api/test/**").permitAll()

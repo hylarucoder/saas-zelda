@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/api/article")
-class ArticleController {
+open class ArticleController {
 
     @GetMapping("/")
     fun findAll(): String {
@@ -21,7 +21,7 @@ class ArticleController {
 
 @RestController
 @RequestMapping("/api/user")
-class UserController {
+open class UserController {
 
     @GetMapping("/")
     fun findAll(): String {

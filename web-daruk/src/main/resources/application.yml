@@ -10,6 +10,8 @@ spring:
       jdbc-url: jdbc:postgresql://localhost:5432/zelda
       username: zelda
       password: zelda
+    url: jdbc:postgresql://localhost:5432/zelda
+    driver-class-name: "org.postgresql.Driver"
 
 server:
   error:
@@ -24,4 +26,6 @@ sentry:
   dsn: https://4a6a7fbbd55b46c6b6f0ea71d5f52927@o280215.ingest.sentry.io/5228407
 
 daruk:
-  dsn: https://4a6a7fbbd55b46c6b6f0ea71d5f52927@o280215.ingest.sentry.io/5228407
+  jwt:
+    secret: "1"
+    expired: 600000

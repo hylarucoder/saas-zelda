@@ -10,7 +10,7 @@ import javax.validation.Valid
 @CrossOrigin(origins = ["*"], maxAge = 3600)
 @RestController
 @RequestMapping("/api/account")
-class AuthController {
+open class AuthController {
     @PostMapping("/login")
     fun login(@RequestBody loginRequest: @Valid LoginRequest?): ResponseEntity<*> {
         return ResponseEntity.ok<Any>(MessageResponse("wocao"))
