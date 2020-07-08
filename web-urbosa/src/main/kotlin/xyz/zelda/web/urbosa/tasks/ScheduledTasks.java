@@ -3,7 +3,6 @@ package xyz.zelda.web.urbosa.tasks;
 import org.springframework.scheduling.annotation.Scheduled;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class ScheduledTasks {
 

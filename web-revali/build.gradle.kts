@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm")
+    kotlin("plugin.spring")
 }
 
 dependencies {
@@ -8,4 +9,5 @@ dependencies {
     api(project(":infra-common"))
     api(project(":infra-starters"))
     api(project(":infra-spring"))
+    implementation("org.jetbrains.exposed:exposed-spring-boot-starter:0.21.1")
 }

@@ -3,22 +3,25 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     val kotlinVersion = "1.3.72"
     id("org.springframework.boot") version "2.3.0.RELEASE" apply false
-    id("io.spring.dependency-management") version "1.0.8.RELEASE" apply false
+    id("io.spring.dependency-management") version "1.0.9.RELEASE"
     kotlin("jvm") version kotlinVersion apply false
     kotlin("plugin.spring") version kotlinVersion apply false
     kotlin("plugin.allopen") version kotlinVersion apply false
     kotlin("plugin.serialization") version kotlinVersion apply false
 }
 
+dependencyManagement {
+    imports {
+        mavenBom(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES)
+    }
+}
+
+
+
 
 allprojects {
     group = "xyz.zelda"
     version = "1.0.0"
-
-    tasks.withType<JavaCompile> {
-        sourceCompatibility = "1.8"
-        targetCompatibility = "1.8"
-    }
 
     tasks.withType<KotlinCompile> {
         kotlinOptions {
@@ -65,6 +68,7 @@ subprojects {
     apply {
         plugin("io.spring.dependency-management")
         plugin("org.springframework.boot")
+
     }
 
     repositories {

@@ -9,7 +9,6 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-loader-tools:2.3.0.RELEASE")
     implementation("org.springframework.boot:spring-boot-starter-actuator:2.3.0.RELEASE")
     implementation("org.springframework.boot:spring-boot-starter-aop:2.3.0.RELEASE")
-    implementation("org.springframework.boot:spring-boot-starter-data-elasticsearch:2.3.0.RELEASE")
     implementation("org.springframework.boot:spring-boot-starter-integration:2.3.0.RELEASE")
     implementation("org.springframework.boot:spring-boot-starter-logging:2.3.0.RELEASE")
     implementation("org.springframework.boot:spring-boot-starter-mail:2.3.0.RELEASE")
@@ -23,6 +22,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-jetty:2.3.0.RELEASE")
 
     implementation("org.springframework.cloud:spring-cloud-starter-openfeign:2.1.0.RELEASE")
+    runtimeOnly("com.h2database:h2:1.3.176")
+    //    implementation("org.springframework.boot:spring-boot-starter-data-elasticsearch:2.3.0.RELEASE")
 
     //    implementation("org.springframework.boot:spring-boot-starter-cloud-connectors:2.3.0.RELEASE")
     //    implementation("com.fasterxml.jackson.core:jackson-annotations")
