@@ -1,10 +1,14 @@
-# application.yml
-
 spring:
   profiles:
     active: DEV
   application:
     name: web-revali
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+
 
 server:
   error:
@@ -14,7 +18,4 @@ server:
     accesslog:
       enabled: false
   port: 8080
-
-sentry:
-  dsn: https://4a6a7fbbd55b46c6b6f0ea71d5f52927@o280215.ingest.sentry.io/5228407
 

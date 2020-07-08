@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-open class DarukApplication
+class DarukApplication
 
 fun main(args: Array<String>) {
     runApplication<DarukApplication>(*args){
