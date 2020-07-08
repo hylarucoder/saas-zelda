@@ -5,6 +5,8 @@ spring:
     active: DEV
   application:
     name: web-daruk
+  lifecycle:
+    timeout-per-shutdown-phase: 30s
 
 server:
   error:
@@ -14,6 +16,7 @@ server:
     accesslog:
       enabled: false
   port: 8080
+  shutdown: graceful
 
 sentry:
   dsn: https://4a6a7fbbd55b46c6b6f0ea71d5f52927@o280215.ingest.sentry.io/5228407
