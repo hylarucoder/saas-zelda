@@ -1,9 +1,9 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    val kotlinVersion = "1.3.72"
-    id("org.springframework.boot") version "2.3.0.RELEASE" apply false
-    id("io.spring.dependency-management") version "1.0.9.RELEASE"
+    val kotlinVersion = "1.4.32"
+    id("org.springframework.boot") version "2.4.3"
+    id("io.spring.dependency-management") version "1.0.11.RELEASE"
     kotlin("jvm") version kotlinVersion apply false
     kotlin("plugin.spring") version kotlinVersion apply false
     kotlin("plugin.allopen") version kotlinVersion apply false
