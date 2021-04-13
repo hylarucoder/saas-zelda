@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(kotlin("stdlib-jdk8"))
-    implementation(kotlin("reflect"))
+    implementation(project(":sass-core"))
+    implementation(project(":sass-starter"))
     implementation(project(":sass-spring"))
 }
